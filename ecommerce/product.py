@@ -41,3 +41,13 @@ def createproduct():
         flash(error)
 
     return render_template('product/createproduct.html')
+
+
+@bp.route('/products')
+def products():
+    return render_template('product/products.html')
+
+
+@bp.route('/about')
+def about():
+    return render_template('product/about.html')

@@ -5,15 +5,25 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="name">Name</label>
-    <input name="name" id="name" value="{{ request.form['name'] }}" >
-      <label for="price">Price</label>
-    <input name="price" id="price" value="{{ request.form['price'] }}" >
-      <label for="quantity">Quantity</label>
-    <input name="quantity" id="quantity" value="{{ request.form['quantity'] }}" >
-      <label for="locations">Locations</label>
-    <input name="locations" id="locations" value="{{ request.form['locations'] }}" >
-    <input type="submit" value="Save">
+<div class="container">
+  <form class="form-horizontal" method="post">
+      <div class="form-group">
+           <label for="name">Name</label>
+           <input name="name" class="form-control" id="name" value="{{ request.form['name'] }}" >
+      </div>
+      <div class="form-group">
+          <label for="price">Price</label>
+          <input name="price" class="form-control" id="price" value="{{ request.form['price'] }}" >
+      </div>
+      <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input name="quantity" class="form-control" id="quantity" value="{{ request.form['quantity'] }}" >
+      </div>
+      <div class="form-group">
+          <label for="locations">Locations</label>
+          <input name="locations" class="form-control" id="locations" value="{{ request.form['locations'] }}" >
+      </div>
+      <input type="submit" value="Save" class="btn btn-primary">
   </form>
+</div>
 {% endblock %}
