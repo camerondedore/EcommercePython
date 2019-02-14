@@ -1,3 +1,7 @@
+from .static.Product import Product
+
+import json
+
 import functools
 
 from flask import (
@@ -36,7 +40,26 @@ def createproduct():
         if error == "":
             # do something with product later, return to products page
 
-            return redirect(url_for('products.html'))
+            # create product
+            newProduct = Product(name, price, quantity, locations)
+
+            products = []
+
+            # get old list
+            with open("test_products.json") as f:
+                products = json.load(f)
+    
+            # add product
+            products.append(newProduct)
+
+            fileOutput = open("test_products.json", "w")
+            # write to file
+            fileOutput.write(json.dumps(products, default=lambda o: o.__dict__))
+            # finish file
+            fileOutput.close()
+
+
+            return redirect(url_for('product.products'))
 
         flash(error)
 
